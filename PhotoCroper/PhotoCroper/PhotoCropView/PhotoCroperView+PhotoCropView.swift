@@ -16,18 +16,18 @@ extension PhotoCroperView {
     }
 }
 
-extension PhotoCroperView : IGRCropViewDelegate {
+extension PhotoCroperView : PhotoCropViewDelegate {
     
-    public func cropViewDidStartCrop(_ cropView: IGRCropView) {
+    public func cropViewDidStartCrop(_ cropView: PhotoCropView) {
         self.highlightMask(true, animate: true)
         self.manualMove = true
     }
     
-    public func cropViewDidMove(_ cropView: IGRCropView) {
+    public func cropViewDidMove(_ cropView: PhotoCropView) {
         self.updateMasks()
     }
     
-    public func cropViewDidStopCrop(_ cropView: IGRCropView) {
+    public func cropViewDidStopCrop(_ cropView: PhotoCropView) {
         let scaleX: CGFloat = self.originalSize.width / cropView.bounds.size.width
         let scaleY: CGFloat = self.originalSize.height / cropView.bounds.size.height
         let scale: CGFloat = min(scaleX, scaleY)
@@ -96,7 +96,7 @@ extension PhotoCroperView : IGRCropViewDelegate {
         self.manualMove = false
     }
     
-    public func cropViewInsideValidFrame(for point: CGPoint, from cropView: IGRCropView) -> Bool {
+    public func cropViewInsideValidFrame(for point: CGPoint, from cropView: PhotoCropView) -> Bool {
         let updatedPoint = self.convert(point, to: self.scrollView.photoContentView)
         let frame =  self.scrollView.photoContentView.frame
         return frame.contains(updatedPoint)

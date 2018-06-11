@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class IGRCropCornerView: UIView {
+public class PhotoCropCornerView: UIView {
     
     init(cornerType type: CropCornerType, lineWidth: CGFloat, lineLenght: CGFloat) {
         super.init(frame: CGRect(x: CGFloat.zero, y: CGFloat.zero, width: lineLenght, height: lineLenght))

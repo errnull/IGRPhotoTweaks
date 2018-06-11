@@ -8,29 +8,29 @@
 
 import UIKit
 
-public protocol IGRCropViewDelegate : class {
+public protocol PhotoCropViewDelegate : class {
     /*
      Calls ones, when user start interaction with view
      */
-    func cropViewDidStartCrop(_ cropView: IGRCropView)
+    func cropViewDidStartCrop(_ cropView: PhotoCropView)
     
     /*
      Calls always, when user move touch around view
      */
-    func cropViewDidMove(_ cropView: IGRCropView)
+    func cropViewDidMove(_ cropView: PhotoCropView)
     
     /*
      Calls ones, when user stop interaction with view
      */
-    func cropViewDidStopCrop(_ cropView: IGRCropView)
+    func cropViewDidStopCrop(_ cropView: PhotoCropView)
     
     /*
      Calls ones, when change a Crop frame
      */
-    func cropViewInsideValidFrame(for point: CGPoint, from cropView: IGRCropView) -> Bool
+    func cropViewInsideValidFrame(for point: CGPoint, from cropView: PhotoCropView) -> Bool
 }
 
-public class IGRCropView: UIView {
+public class PhotoCropView: UIView {
     
     //MARK: - Public VARs
     
@@ -38,20 +38,20 @@ public class IGRCropView: UIView {
      The optional View Delegate.
      */
     
-    weak var delegate: IGRCropViewDelegate?
+    weak var delegate: PhotoCropViewDelegate?
     
     //MARK: - Private VARs
     
-    internal lazy var horizontalCropLines: [IGRCropLine] = { [unowned self] by in
+    internal lazy var horizontalCropLines: [PhotoCropLine] = { [unowned self] by in
         var lines = self.setupHorisontalLines(count: kCropLines,
-                                              className: IGRCropLine.self)
-        return lines as! [IGRCropLine]
+                                              className: PhotoCropLine.self)
+        return lines as! [PhotoCropLine]
     }(())
     
-    internal lazy var verticalCropLines: [IGRCropLine] = { [unowned self] by in
+    internal lazy var verticalCropLines: [PhotoCropLine] = { [unowned self] by in
         var lines = self.setupVerticalLines(count: kCropLines,
-                                            className: IGRCropLine.self)
-        return lines as! [IGRCropLine]
+                                            className: PhotoCropLine.self)
+        return lines as! [PhotoCropLine]
     }(())
     
     internal lazy var horizontalGridLines: [IGRCropGridLine] = { [unowned self] by in
@@ -96,28 +96,28 @@ public class IGRCropView: UIView {
         
         self.seetupLines()
         
-        let upperLeft = IGRCropCornerView(cornerType: .upperLeft,
+        let upperLeft = PhotoCropCornerView(cornerType: .upperLeft,
                                           lineWidth: cornerBorderWidth,
                                           lineLenght: cornerBorderLength)
         upperLeft.center = CGPoint(x: cornerBorderLength.half,
                                    y: cornerBorderLength.half)
         self.addSubview(upperLeft)
         
-        let upperRight = IGRCropCornerView(cornerType: .upperRight,
+        let upperRight = PhotoCropCornerView(cornerType: .upperRight,
                                            lineWidth: cornerBorderWidth,
                                            lineLenght:cornerBorderLength)
         upperRight.center = CGPoint(x: (self.frame.size.width - cornerBorderLength.half),
                                     y: cornerBorderLength.half)
         self.addSubview(upperRight)
         
-        let lowerRight = IGRCropCornerView(cornerType: .lowerRight,
+        let lowerRight = PhotoCropCornerView(cornerType: .lowerRight,
                                            lineWidth: cornerBorderWidth,
                                            lineLenght:cornerBorderLength)
         lowerRight.center = CGPoint(x: (self.frame.size.width - cornerBorderLength.half),
                                     y: (self.frame.size.height - cornerBorderLength.half))
         self.addSubview(lowerRight)
         
-        let lowerLeft = IGRCropCornerView(cornerType: .lowerLeft,
+        let lowerLeft = PhotoCropCornerView(cornerType: .lowerLeft,
                                           lineWidth: cornerBorderWidth,
                                           lineLenght:cornerBorderLength)
         lowerLeft.center = CGPoint(x: cornerBorderLength.half,

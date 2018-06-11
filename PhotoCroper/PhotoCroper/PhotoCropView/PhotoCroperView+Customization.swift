@@ -39,30 +39,30 @@ public protocol PhotoCroperViewCustomizationDelegate : class {
 extension PhotoCroperView {
     
     func borderColor() -> UIColor {
-        return (self.customizationDelegate?.borderColor())!
+        return self.customizationDelegate?.borderColor() ?? UIColor.cropLine()
     }
     
     func borderWidth() -> CGFloat {
-        return (self.customizationDelegate?.borderWidth())!
+        return self.customizationDelegate?.borderWidth() ?? 1.0
     }
     
     func cornerBorderWidth() -> CGFloat {
-        return (self.customizationDelegate?.cornerBorderWidth())!
+        return self.customizationDelegate?.cornerBorderWidth() ?? kCropViewCornerWidth
     }
     
     func cornerBorderLength() -> CGFloat {
-        return (self.customizationDelegate?.cornerBorderLength())!
+        return self.customizationDelegate?.cornerBorderLength() ?? kCropViewCornerLength
     }
     
     func isHighlightMask() -> Bool {
-        return (self.customizationDelegate?.isHighlightMask())!
+        return self.customizationDelegate?.isHighlightMask() ?? true
     }
     
     func highlightMaskAlphaValue() -> CGFloat {
-        return (self.customizationDelegate?.highlightMaskAlphaValue())!
+        return self.customizationDelegate?.highlightMaskAlphaValue() ?? 0.3
     }
     
     func canvasHeaderHeigth() -> CGFloat {
-        return (self.customizationDelegate?.canvasHeaderHeigth())!
+        return self.customizationDelegate?.canvasHeaderHeigth() ?? kCanvasHeaderHeigth
     }
 }

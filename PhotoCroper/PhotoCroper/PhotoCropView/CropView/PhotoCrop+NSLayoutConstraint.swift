@@ -9,7 +9,7 @@
 import UIKit
 import UIKit
 
-extension IGRCropView {
+extension PhotoCropView {
     internal func setupHorisontalLayoutConstraint(to line: UIView, multiplier: CGFloat) {
         let leading = NSLayoutConstraint(item: line,
                                          attribute: .leading,

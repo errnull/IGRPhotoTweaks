@@ -8,9 +8,21 @@
 
 import UIKit
 
-public class IGRPhotoContentView: UIView {
+extension PhotoCroperView {
     
-    lazy fileprivate var imageView: UIImageView! = {
+    
+    public func replaceImageViewWithView(view: UIView) {
+        view.frame = photoContentView.imageView.frame
+        photoContentView.imageView.removeFromSuperview()
+        photoContentView.addSubview(view)
+        photoContentView.imageView = view
+    }
+    
+}
+
+public class PhotoCroperContentView: UIView {
+    
+    lazy fileprivate var imageView: UIView! = {
         let imageView = UIImageView(frame: self.bounds)
         self.addSubview(imageView)
         
@@ -20,7 +32,6 @@ public class IGRPhotoContentView: UIView {
     public var image: UIImage! {
         didSet {
             self.imageView.frame = self.bounds
-            self.imageView.image = self.image
             self.imageView.isUserInteractionEnabled = true
         }
     }

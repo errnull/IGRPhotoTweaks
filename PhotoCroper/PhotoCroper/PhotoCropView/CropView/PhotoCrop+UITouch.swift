@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension IGRCropView {
+extension PhotoCropView {
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if touches.count == 1 {
             self.updateCropLines(animate: false)

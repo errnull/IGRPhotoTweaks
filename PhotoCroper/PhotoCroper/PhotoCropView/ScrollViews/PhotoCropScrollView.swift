@@ -8,31 +8,31 @@
 
 import UIKit
 
-public protocol IGRPhotoScrollViewDelegate : class{
+public protocol PhotoCroperScrollViewDelegate : class{
     /*
      Calls ones, when user start interaction with view
      */
-    func scrollViewDidStartUpdateScrollContentOffset(_ scrollView: IGRPhotoScrollView)
+    func scrollViewDidStartUpdateScrollContentOffset(_ scrollView: PhotoCroperScrollView)
     
     /*
      Calls ones, when user stop interaction with view
      */
-    func scrollViewDidStopScrollUpdateContentOffset(_ scrollView: IGRPhotoScrollView)
+    func scrollViewDidStopScrollUpdateContentOffset(_ scrollView: PhotoCroperScrollView)
 }
 
-public class IGRPhotoScrollView: UIScrollView {
+public class PhotoCroperScrollView: UIScrollView {
     
     //MARK: - Public VARs
     
     /*
      View for func viewForZooming(in scrollView: UIScrollView)
      */
-    var photoContentView: IGRPhotoContentView!
+    var photoContentView: PhotoCroperContentView!
     
     /*
      The optional scroll delegate.
      */
-    weak var updateDelegate: IGRPhotoScrollViewDelegate?
+    weak var updateDelegate: PhotoCroperScrollViewDelegate?
     
     //MARK: - Protected VARs
     
@@ -101,7 +101,7 @@ public class IGRPhotoScrollView: UIScrollView {
             }
             
             let selector = #selector(self.stopUpdateContentOffset)
-            IGRPhotoScrollView.cancelPreviousPerformRequests(withTarget: self,
+            PhotoCroperScrollView.cancelPreviousPerformRequests(withTarget: self,
                                                              selector: selector,
                                                              object: nil)
             perform(selector, with: nil, afterDelay: kAnimationDuration * 2.0)

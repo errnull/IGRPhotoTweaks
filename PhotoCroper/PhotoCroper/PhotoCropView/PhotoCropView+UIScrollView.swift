@@ -12,8 +12,7 @@ extension PhotoCroperView {
     
     internal func setupScrollView() {
         self.scrollView.updateDelegate = self
-        
-        self.photoContentView.image = image
+        self.photoContentView.backgroundColor = UIColor.red
         self.scrollView.photoContentView = self.photoContentView
     }
 }
@@ -33,12 +32,12 @@ extension PhotoCroperView : UIScrollViewDelegate {
     }
 }
 
-extension PhotoCroperView : IGRPhotoScrollViewDelegate {
-    public func scrollViewDidStartUpdateScrollContentOffset(_ scrollView: IGRPhotoScrollView) {
+extension PhotoCroperView : PhotoCroperScrollViewDelegate {
+    public func scrollViewDidStartUpdateScrollContentOffset(_ scrollView: PhotoCroperScrollView) {
         self.highlightMask(true, animate: true)
     }
     
-    public func scrollViewDidStopScrollUpdateContentOffset(_ scrollView: IGRPhotoScrollView) {
+    public func scrollViewDidStopScrollUpdateContentOffset(_ scrollView: PhotoCroperScrollView) {
         self.updateMasks()
         self.highlightMask(false, animate: true)
     }

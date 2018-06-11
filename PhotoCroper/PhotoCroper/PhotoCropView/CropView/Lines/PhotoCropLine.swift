@@ -8,6 +8,6 @@
 
 import UIKit
 
-public class IGRCropLine: UIView {
+public class PhotoCropLine: UIView {
     
 }

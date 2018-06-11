@@ -20,8 +20,7 @@ extension PhotoCroperView {
             }
             return self.scrollView
             
-        } else {
-            return super.hitTest(point, with: event)
         }
+        return super.hitTest(point, with: event)
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension IGRCropView {
+extension PhotoCropView {
     
     public func resetAspectRect() {
         self.aspectRatioWidth = self.frame.size.width

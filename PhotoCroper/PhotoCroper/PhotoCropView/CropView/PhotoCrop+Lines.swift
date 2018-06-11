@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension IGRCropView {
+extension PhotoCropView {
     
     internal func seetupLines() {
         self.dismiss(self.horizontalCropLines)

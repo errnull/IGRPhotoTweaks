@@ -14,9 +14,19 @@ public class PhotoCroperView: UIView {
     
     public weak var customizationDelegate: PhotoCroperViewCustomizationDelegate?
     
-    private(set) lazy var cropView: IGRCropView! = { [unowned self] by in
+    open var imageView: UIView? {
+        didSet {
+            if let view = imageView as? UIImageView {
+                
+                imageSize = view.frame.size
+                replaceImageViewWithView(view: view)
+            }
+        }
+    }
+    
+    private(set) lazy var cropView: PhotoCropView! = { [unowned self] by in
         
-        let cropView = IGRCropView(frame: self.scrollView.frame,
+        let cropView = PhotoCropView(frame: self.scrollView.frame,
                                     cornerBorderWidth:self.cornerBorderWidth(),
                                     cornerBorderLength:self.cornerBorderLength())
         cropView.center = self.scrollView.center
@@ -28,9 +38,9 @@ public class PhotoCroperView: UIView {
         return cropView
     }(())
     
-    private(set) lazy var photoContentView: IGRPhotoContentView! = { [unowned self] by in
+    private(set) lazy var photoContentView: PhotoCroperContentView! = { [unowned self] by in
         
-        let photoContentView = IGRPhotoContentView(frame: self.scrollView.bounds)
+        let photoContentView = PhotoCroperContentView(frame: self.scrollView.bounds)
         photoContentView.isUserInteractionEnabled = true
         self.scrollView.addSubview(photoContentView)
         
@@ -54,12 +64,12 @@ public class PhotoCroperView: UIView {
     internal var angle: CGFloat         = CGFloat.zero
     fileprivate var photoContentOffset  = CGPoint.zero
     
-    internal lazy var scrollView: IGRPhotoScrollView! = { [unowned self] by in
+    internal lazy var scrollView: PhotoCroperScrollView! = { [unowned self] by in
         
         let maxBounds = self.maxBounds()
         self.originalSize = maxBounds.size
         
-        let scrollView = IGRPhotoScrollView(frame: maxBounds)
+        let scrollView = PhotoCroperScrollView(frame: maxBounds)
         scrollView.center = CGPoint(x: self.frame.width.half, y: self.centerY)
         scrollView.delegate = self
         scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -68,7 +78,8 @@ public class PhotoCroperView: UIView {
         return scrollView
     }(())
     
-    internal weak var image: UIImage! = #imageLiteral(resourceName: "girl")
+    internal var imageSize: CGSize = CGSize.zero
+    
     internal var originalSize = CGSize.zero
     
     internal var manualZoomed = false
@@ -87,10 +98,18 @@ public class PhotoCroperView: UIView {
     
     // MARK: - Life Cicle
     
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialize()
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initialize()
+    }
+
     init(frame: CGRect, image: UIImage, customizationDelegate: PhotoCroperViewCustomizationDelegate!) {
         super.init(frame: frame)
-        
-        self.image = image
         
         self.customizationDelegate = customizationDelegate
         
@@ -99,10 +118,6 @@ public class PhotoCroperView: UIView {
         setupMasks()
         
         self.originalPoint = self.convert(self.scrollView.center, to: self)
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     public override func layoutSubviews() {
@@ -145,6 +160,17 @@ public class PhotoCroperView: UIView {
     
     //MARK: - Private FUNCs
     
+    fileprivate func initialize() {
+        
+        imageSize = CGSize(width: 300, height: 400)
+        
+        setupScrollView()
+        setupCropView()
+        setupMasks()
+        
+        self.originalPoint = self.convert(self.scrollView.center, to: self)
+    }
+    
     fileprivate func maxBounds() -> CGRect {
         // scale the image
         self.maximumCanvasSize = CGSize(width: (kMaximumCanvasWidthRatio * self.frame.size.width),
@@ -152,14 +178,14 @@ public class PhotoCroperView: UIView {
         
         self.centerY = self.maximumCanvasSize.height.half + self.canvasHeaderHeigth()
         
-        let scaleX: CGFloat = self.image.size.width / self.maximumCanvasSize.width
-        let scaleY: CGFloat = self.image.size.height / self.maximumCanvasSize.height
+        let scaleX: CGFloat = self.imageSize.width / self.maximumCanvasSize.width
+        let scaleY: CGFloat = self.imageSize.height / self.maximumCanvasSize.height
         let scale: CGFloat = max(scaleX, scaleY)
         
         let bounds = CGRect(x: CGFloat.zero,
                             y: CGFloat.zero,
-                            width: (self.image.size.width / scale),
-                            height: (self.image.size.height / scale))
+                            width: (self.imageSize.width / scale),
+                            height: (self.imageSize.height / scale))
         
         return bounds
     }

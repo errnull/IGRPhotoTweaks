@@ -87,11 +87,11 @@ open class PhotoCroperViewController: UIViewController {
     
     open func setupThemes() {
         PhotoCroperView.appearance().backgroundColor = UIColor.photoCroperCanvasBackground()
-        IGRPhotoContentView.appearance().backgroundColor = UIColor.clear
-        IGRCropView.appearance().backgroundColor = UIColor.clear
+        PhotoCroperContentView.appearance().backgroundColor = UIColor.clear
+        PhotoCropView.appearance().backgroundColor = UIColor.clear
         IGRCropGridLine.appearance().backgroundColor = UIColor.gridLine()
-        IGRCropLine.appearance().backgroundColor = UIColor.cropLine()
-        IGRCropCornerView.appearance().backgroundColor = UIColor.clear
+        PhotoCropLine.appearance().backgroundColor = UIColor.cropLine()
+        PhotoCropCornerView.appearance().backgroundColor = UIColor.clear
         IGRCropCornerLine.appearance().backgroundColor = UIColor.cropLine()
         IGRCropMaskView.appearance().backgroundColor = UIColor.mask()
     }
