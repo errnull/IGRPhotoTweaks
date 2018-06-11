@@ -68,7 +68,7 @@ public class PhotoCroperView: UIView {
         return scrollView
     }(())
     
-    internal weak var image: UIImage!
+    internal weak var image: UIImage! = #imageLiteral(resourceName: "girl")
     internal var originalSize = CGSize.zero
     
     internal var manualZoomed = false

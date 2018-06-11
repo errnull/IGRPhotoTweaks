@@ -69,7 +69,7 @@
                                 </connections>
                             </slider>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3uu-Bf-5xq" firstAttribute="trailing" secondItem="tKn-d7-LSq" secondAttribute="trailing" constant="40" id="1VO-dv-EEi"/>
                             <constraint firstItem="tKn-d7-LSq" firstAttribute="leading" secondItem="3uu-Bf-5xq" secondAttribute="leading" constant="40" id="3Ka-eF-kAn"/>
@@ -80,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rss-ze-c7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="998" y="134"/>
+            <point key="canvasLocation" x="997.60000000000002" y="133.5832083958021"/>
         </scene>
     </scenes>
     <resources>

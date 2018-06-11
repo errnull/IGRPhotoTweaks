@@ -11,14 +11,17 @@ import UIKit
 extension PhotoCroperView {
     
     override public func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        if self.cropView.frame.insetBy(dx: -kCropViewHotArea,
-                                       dy: -kCropViewHotArea).contains(point) &&
-            !self.cropView.frame.insetBy(dx: kCropViewHotArea,
-                                         dy: kCropViewHotArea).contains(point) {
+        if frame.contains(point) {
+            if self.cropView.frame.insetBy(dx: -kCropViewHotArea,
+                                           dy: -kCropViewHotArea).contains(point) &&
+                !self.cropView.frame.insetBy(dx: kCropViewHotArea,
+                                             dy: kCropViewHotArea).contains(point) {
+                return self.cropView
+            }
+            return self.scrollView
             
-            return self.cropView
+        } else {
+            return super.hitTest(point, with: event)
         }
-        
-        return self.scrollView
     }
 }

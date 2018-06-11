@@ -21,7 +21,6 @@ class ViewController: UIViewController {
         
         if let nextViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PhotoCropEditorViewController") as? PhotoCropEditorViewController {
             nextViewController.image = imageView.image
-            nextViewController.view.backgroundColor = UIColor.white
             present(nextViewController, animated: true) {
                 print("present success")
             }
