@@ -8,12 +8,17 @@
 
 import UIKit
 
-class PhotoCropEditorViewController: UIViewController {
-    
-    open var image: UIImage?
-    
+class PhotoCropEditorViewController: PhotoCroperViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    @IBAction func rotationSliderValueDidChange(_ sender: UISlider) {
+        
+        let angle = CGFloat(sender.value) / 180.0 * CGFloat.pi
+        self.changedAngle(value: angle)
         
     }
 }

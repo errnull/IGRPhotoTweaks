@@ -51,6 +51,37 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
+        <!--Photo Crop Editor View Controller-->
+        <scene sceneID="hPM-Ms-qdA">
+            <objects>
+                <viewController storyboardIdentifier="PhotoCropEditorViewController" id="At0-ga-zdj" customClass="PhotoCropEditorViewController" customModule="PhotoCroper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="udt-Y7-uG6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-180" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="tKn-d7-LSq">
+                                <rect key="frame" x="38" y="597" width="299" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="SaM-2F-eI0"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="rotationSliderValueDidChange:" destination="At0-ga-zdj" eventType="valueChanged" id="f6m-cb-K4g"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3uu-Bf-5xq" firstAttribute="trailing" secondItem="tKn-d7-LSq" secondAttribute="trailing" constant="40" id="1VO-dv-EEi"/>
+                            <constraint firstItem="tKn-d7-LSq" firstAttribute="leading" secondItem="3uu-Bf-5xq" secondAttribute="leading" constant="40" id="3Ka-eF-kAn"/>
+                            <constraint firstItem="3uu-Bf-5xq" firstAttribute="bottom" secondItem="tKn-d7-LSq" secondAttribute="bottom" constant="40" id="86a-ND-1jp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3uu-Bf-5xq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rss-ze-c7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="998" y="134"/>
+        </scene>
     </scenes>
     <resources>
         <image name="girl" width="498" height="750"/>
