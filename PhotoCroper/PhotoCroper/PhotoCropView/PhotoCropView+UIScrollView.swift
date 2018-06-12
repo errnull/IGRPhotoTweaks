@@ -12,7 +12,6 @@ extension PhotoCroperView {
     
     internal func setupScrollView() {
         self.scrollView.updateDelegate = self
-        self.photoContentView.backgroundColor = UIColor.red
         self.scrollView.photoContentView = self.photoContentView
     }
 }

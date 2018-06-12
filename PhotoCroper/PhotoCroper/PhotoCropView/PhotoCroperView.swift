@@ -17,9 +17,9 @@ public class PhotoCroperView: UIView {
     open var imageView: UIView? {
         didSet {
             if let view = imageView as? UIImageView {
-                
                 imageSize = view.frame.size
                 replaceImageViewWithView(view: view)
+                setNeedsLayout()
             }
         }
     }
@@ -78,7 +78,7 @@ public class PhotoCroperView: UIView {
         return scrollView
     }(())
     
-    internal var imageSize: CGSize = CGSize.zero
+    internal var imageSize: CGSize = CGSize(width: 1, height: 1)
     
     internal var originalSize = CGSize.zero
     
@@ -86,10 +86,10 @@ public class PhotoCroperView: UIView {
     internal var manualMove   = false
     
     // masks
-    internal var topMask:    IGRCropMaskView!
-    internal var leftMask:   IGRCropMaskView!
-    internal var bottomMask: IGRCropMaskView!
-    internal var rightMask:  IGRCropMaskView!
+    internal var topMask:    PhotoCropMaskView!
+    internal var leftMask:   PhotoCropMaskView!
+    internal var bottomMask: PhotoCropMaskView!
+    internal var rightMask:  PhotoCropMaskView!
     
     // constants
     fileprivate var maximumCanvasSize: CGSize!
@@ -161,8 +161,6 @@ public class PhotoCroperView: UIView {
     //MARK: - Private FUNCs
     
     fileprivate func initialize() {
-        
-        imageSize = CGSize(width: 300, height: 400)
         
         setupScrollView()
         setupCropView()

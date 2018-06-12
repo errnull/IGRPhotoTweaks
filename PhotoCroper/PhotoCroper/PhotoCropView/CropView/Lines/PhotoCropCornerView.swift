@@ -28,13 +28,13 @@ public class PhotoCropCornerView: UIView {
     
     fileprivate func setup(cornerType type: CropCornerType, lineWidth: CGFloat, lineLenght: CGFloat) {
         
-        let horizontal = IGRCropCornerLine(frame: CGRect(x: CGFloat.zero,
+        let horizontal = PhotoCropCornerLine(frame: CGRect(x: CGFloat.zero,
                                                          y: CGFloat.zero,
                                                          width: lineLenght,
                                                          height: lineWidth))
         self.addSubview(horizontal)
         
-        let vertical = IGRCropCornerLine(frame: CGRect(x: CGFloat.zero,
+        let vertical = PhotoCropCornerLine(frame: CGRect(x: CGFloat.zero,
                                                        y: CGFloat.zero,
                                                        width: lineWidth,
                                                        height: lineLenght))

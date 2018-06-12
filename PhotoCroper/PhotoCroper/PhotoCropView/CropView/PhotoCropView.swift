@@ -54,15 +54,15 @@ public class PhotoCropView: UIView {
         return lines as! [PhotoCropLine]
     }(())
     
-    internal lazy var horizontalGridLines: [IGRCropGridLine] = { [unowned self] by in
+    internal lazy var horizontalGridLines: [PhotoCropGridLine] = { [unowned self] by in
         var lines = self.setupHorisontalLines(count: kGridLines,
-                                              className: IGRCropGridLine.self)
-        return lines as! [IGRCropGridLine]
+                                              className: PhotoCropGridLine.self)
+        return lines as! [PhotoCropGridLine]
     }(())
-    internal lazy var verticalGridLines: [IGRCropGridLine] = { [unowned self] by in
+    internal lazy var verticalGridLines: [PhotoCropGridLine] = { [unowned self] by in
         var lines = self.setupVerticalLines(count: kGridLines,
-                                            className: IGRCropGridLine.self)
-        return lines as! [IGRCropGridLine]
+                                            className: PhotoCropGridLine.self)
+        return lines as! [PhotoCropGridLine]
     }(())
     
     internal var cornerBorderLength      = kCropViewCornerLength
@@ -94,7 +94,7 @@ public class PhotoCropView: UIView {
     
     fileprivate func setup() {
         
-        self.seetupLines()
+        self.setupLines()
         
         let upperLeft = PhotoCropCornerView(cornerType: .upperLeft,
                                           lineWidth: cornerBorderWidth,

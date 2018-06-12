@@ -25,15 +25,17 @@ class PhotoCropEditorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        setupTheme()
+        
         let imageView = UIImageView(image: #imageLiteral(resourceName: "girl"))
         
+        cropPreview.setCropAspectRect(aspect: "1:1")
         cropPreview.imageView = imageView
         cropPreview.clipsToBounds = true
     }
     
     
-    @IBAction func resetButtonDidClick(_ sender: Any) {
+    @IBAction func resetButtonDidClick(_ sender: Any?) {
         
         rotationAngleSlider.value = Float(0)
         cropPreview.resetView()
@@ -42,5 +44,31 @@ class PhotoCropEditorViewController: UIViewController {
         
         let angle = CGFloat(sender.value) / 180.0 * CGFloat.pi
         cropPreview.changedAngle(value: angle)
+    }
+    
+    @IBAction func nineToSixteenButtonDidClick(_ sender: UIButton) {
+        resetButtonDidClick(nil)
+        cropPreview.setCropAspectRect(aspect: "9:16")
+    }
+    
+    @IBAction func threeToFourButtonDidClick(_ sender: UIButton) {
+        resetButtonDidClick(nil)
+        cropPreview.setCropAspectRect(aspect: "3:4")
+    }
+    
+    @IBAction func oneToOneButtonDidClick(_ sender: UIButton) {
+        resetButtonDidClick(nil)
+        cropPreview.setCropAspectRect(aspect: "1:1")
+    }
+
+    func setupTheme() {
+        PhotoCroperView.appearance().backgroundColor = UIColor.photoCroperCanvasBackground()
+        PhotoCroperContentView.appearance().backgroundColor = UIColor.clear
+        PhotoCropView.appearance().backgroundColor = UIColor.clear
+        PhotoCropGridLine.appearance().backgroundColor = UIColor.gridLine()
+        PhotoCropLine.appearance().backgroundColor = UIColor.cropLine()
+        PhotoCropCornerView.appearance().backgroundColor = UIColor.clear
+        PhotoCropCornerLine.appearance().backgroundColor = UIColor.cropLine()
+        PhotoCropMaskView.appearance().backgroundColor = UIColor.mask()
     }
 }

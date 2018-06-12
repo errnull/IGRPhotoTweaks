@@ -17,7 +17,6 @@ extension PhotoCroperView {
         photoContentView.addSubview(view)
         photoContentView.imageView = view
     }
-    
 }
 
 public class PhotoCroperContentView: UIView {

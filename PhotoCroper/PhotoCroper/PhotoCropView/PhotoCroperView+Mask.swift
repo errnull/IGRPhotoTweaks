@@ -12,16 +12,16 @@ extension PhotoCroperView {
 
     internal func setupMasks()
     {
-        self.topMask = IGRCropMaskView()
+        self.topMask = PhotoCropMaskView()
         self.addSubview(self.topMask)
         
-        self.leftMask = IGRCropMaskView()
+        self.leftMask = PhotoCropMaskView()
         self.addSubview(self.leftMask)
         
-        self.rightMask = IGRCropMaskView()
+        self.rightMask = PhotoCropMaskView()
         self.addSubview(self.rightMask)
         
-        self.bottomMask = IGRCropMaskView()
+        self.bottomMask = PhotoCropMaskView()
         self.addSubview(self.bottomMask)
         
         self.setupMaskLayoutConstraints()

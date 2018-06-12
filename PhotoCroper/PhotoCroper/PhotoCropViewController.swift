@@ -89,11 +89,11 @@ open class PhotoCroperViewController: UIViewController {
         PhotoCroperView.appearance().backgroundColor = UIColor.photoCroperCanvasBackground()
         PhotoCroperContentView.appearance().backgroundColor = UIColor.clear
         PhotoCropView.appearance().backgroundColor = UIColor.clear
-        IGRCropGridLine.appearance().backgroundColor = UIColor.gridLine()
+        PhotoCropGridLine.appearance().backgroundColor = UIColor.gridLine()
         PhotoCropLine.appearance().backgroundColor = UIColor.cropLine()
         PhotoCropCornerView.appearance().backgroundColor = UIColor.clear
-        IGRCropCornerLine.appearance().backgroundColor = UIColor.cropLine()
-        IGRCropMaskView.appearance().backgroundColor = UIColor.mask()
+        PhotoCropCornerLine.appearance().backgroundColor = UIColor.cropLine()
+        PhotoCropMaskView.appearance().backgroundColor = UIColor.mask()
     }
     
     // MARK: - Public

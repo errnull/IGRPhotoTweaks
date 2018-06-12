@@ -20,14 +20,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="girl" translatesAutoresizingMaskIntoConstraints="NO" id="wpj-kx-N8E">
-                                <rect key="frame" x="63" y="112.5" width="249" height="375"/>
+                                <rect key="frame" x="37.5" y="150" width="300" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="249" id="C1m-6U-GaB"/>
-                                    <constraint firstAttribute="height" constant="375" id="Zbh-Pg-boV"/>
+                                    <constraint firstAttribute="width" constant="300" id="C1m-6U-GaB"/>
+                                    <constraint firstAttribute="height" constant="300" id="Zbh-Pg-boV"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wcv-3p-3Zn">
-                                <rect key="frame" x="170.5" y="517.5" width="34" height="30"/>
+                                <rect key="frame" x="170.5" y="480" width="34" height="30"/>
                                 <state key="normal" title="Crop"/>
                                 <connections>
                                     <action selector="cropButtonDidClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QBh-eF-N6j"/>
@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-180" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="tKn-d7-LSq">
-                                <rect key="frame" x="38" y="597" width="299" height="31"/>
+                                <rect key="frame" x="38" y="567" width="260" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="SaM-2F-eI0"/>
                                 </constraints>
@@ -69,30 +69,59 @@
                                 </connections>
                             </slider>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q49-37-LIB" customClass="PhotoCroperView" customModule="PhotoCroper" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="375" height="500"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="507"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="9JH-XB-Y2p"/>
-                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9P-Zf-tb2">
-                                <rect key="frame" x="168" y="559" width="39" height="30"/>
+                                <rect key="frame" x="316" y="567" width="39" height="30"/>
                                 <state key="normal" title="Reset"/>
                                 <connections>
                                     <action selector="resetButtonDidClick:" destination="At0-ga-zdj" eventType="touchUpInside" id="GWc-Yc-h36"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kL5-v6-89X">
+                                <rect key="frame" x="79" y="617" width="30" height="30"/>
+                                <state key="normal" title="9:16"/>
+                                <connections>
+                                    <action selector="nineToSixteenButtonDidClick:" destination="At0-ga-zdj" eventType="touchUpInside" id="2qA-dn-o7d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zre-0z-AVO">
+                                <rect key="frame" x="164.5" y="617" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="P3P-mQ-1hL"/>
+                                    <constraint firstAttribute="height" constant="30" id="xlN-jN-bV9"/>
+                                </constraints>
+                                <state key="normal" title="3:4"/>
+                                <connections>
+                                    <action selector="threeToFourButtonDidClick:" destination="At0-ga-zdj" eventType="touchUpInside" id="UtN-kR-Tj2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhH-JE-aPW">
+                                <rect key="frame" x="266.5" y="617" width="30" height="30"/>
+                                <state key="normal" title="1:1"/>
+                                <connections>
+                                    <action selector="oneToOneButtonDidClick:" destination="At0-ga-zdj" eventType="touchUpInside" id="k69-e4-MWV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tKn-d7-LSq" firstAttribute="top" secondItem="a9P-Zf-tb2" secondAttribute="bottom" constant="8" id="0Zy-hy-NOU"/>
-                            <constraint firstItem="3uu-Bf-5xq" firstAttribute="trailing" secondItem="tKn-d7-LSq" secondAttribute="trailing" constant="40" id="1VO-dv-EEi"/>
+                            <constraint firstItem="a9P-Zf-tb2" firstAttribute="leading" secondItem="tKn-d7-LSq" secondAttribute="trailing" constant="20" id="0P9-bY-NYV"/>
+                            <constraint firstItem="a9P-Zf-tb2" firstAttribute="centerY" secondItem="tKn-d7-LSq" secondAttribute="centerY" id="1O0-XT-roz"/>
                             <constraint firstItem="tKn-d7-LSq" firstAttribute="leading" secondItem="3uu-Bf-5xq" secondAttribute="leading" constant="40" id="3Ka-eF-kAn"/>
-                            <constraint firstItem="a9P-Zf-tb2" firstAttribute="centerX" secondItem="udt-Y7-uG6" secondAttribute="centerX" id="3Vi-iR-nZf"/>
-                            <constraint firstItem="3uu-Bf-5xq" firstAttribute="bottom" secondItem="tKn-d7-LSq" secondAttribute="bottom" constant="40" id="86a-ND-1jp"/>
+                            <constraint firstItem="fhH-JE-aPW" firstAttribute="centerX" secondItem="udt-Y7-uG6" secondAttribute="centerX" multiplier="1.5" id="50y-ue-1rv"/>
                             <constraint firstItem="3uu-Bf-5xq" firstAttribute="trailing" secondItem="Q49-37-LIB" secondAttribute="trailing" id="Bwq-5Y-H4t"/>
+                            <constraint firstItem="Zre-0z-AVO" firstAttribute="top" secondItem="tKn-d7-LSq" secondAttribute="bottom" constant="20" id="ByF-Sg-10J"/>
                             <constraint firstItem="Q49-37-LIB" firstAttribute="top" secondItem="3uu-Bf-5xq" secondAttribute="top" id="DzS-WF-HMK"/>
+                            <constraint firstItem="Zre-0z-AVO" firstAttribute="centerX" secondItem="udt-Y7-uG6" secondAttribute="centerX" id="Fjd-QA-o1n"/>
+                            <constraint firstItem="Zre-0z-AVO" firstAttribute="centerY" secondItem="kL5-v6-89X" secondAttribute="centerY" id="Wcp-KD-S1l"/>
+                            <constraint firstItem="3uu-Bf-5xq" firstAttribute="trailing" secondItem="a9P-Zf-tb2" secondAttribute="trailing" constant="20" id="amC-GE-2oG"/>
+                            <constraint firstItem="tKn-d7-LSq" firstAttribute="top" secondItem="Q49-37-LIB" secondAttribute="bottom" constant="40" id="eDx-oH-DHo"/>
+                            <constraint firstItem="kL5-v6-89X" firstAttribute="centerX" secondItem="udt-Y7-uG6" secondAttribute="centerX" multiplier="0.5" id="ouG-5F-01g"/>
+                            <constraint firstItem="3uu-Bf-5xq" firstAttribute="bottom" secondItem="Zre-0z-AVO" secondAttribute="bottom" constant="20" id="pum-x9-fcw"/>
                             <constraint firstItem="Q49-37-LIB" firstAttribute="leading" secondItem="3uu-Bf-5xq" secondAttribute="leading" id="r43-wF-UEH"/>
+                            <constraint firstItem="fhH-JE-aPW" firstAttribute="centerY" secondItem="kL5-v6-89X" secondAttribute="centerY" id="s5R-P4-xCW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3uu-Bf-5xq"/>
                     </view>
@@ -107,6 +136,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="girl" width="498" height="750"/>
+        <image name="girl" width="481" height="481"/>
     </resources>
 </document>
