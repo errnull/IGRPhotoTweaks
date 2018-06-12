@@ -11,6 +11,7 @@ import UIKit
 class PhotoCropEditorViewController: UIViewController {
 
     @IBOutlet weak var cropPreview: PhotoCroperView!
+    @IBOutlet weak var rotationAngleSlider: UISlider!
     
     open var image: UIImage? {
         didSet {
@@ -25,12 +26,18 @@ class PhotoCropEditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        cropPreview.clipsToBounds = true
-        
         let imageView = UIImageView(image: #imageLiteral(resourceName: "girl"))
+        
         cropPreview.imageView = imageView
+        cropPreview.clipsToBounds = true
     }
     
+    
+    @IBAction func resetButtonDidClick(_ sender: Any) {
+        
+        rotationAngleSlider.value = Float(0)
+        cropPreview.resetView()
+    }
     @IBAction func rotationSliderValueDidChange(_ sender: UISlider) {
         
         let angle = CGFloat(sender.value) / 180.0 * CGFloat.pi

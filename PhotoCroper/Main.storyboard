@@ -75,11 +75,20 @@
                                     <constraint firstAttribute="height" constant="500" id="9JH-XB-Y2p"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9P-Zf-tb2">
+                                <rect key="frame" x="168" y="559" width="39" height="30"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetButtonDidClick:" destination="At0-ga-zdj" eventType="touchUpInside" id="GWc-Yc-h36"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="tKn-d7-LSq" firstAttribute="top" secondItem="a9P-Zf-tb2" secondAttribute="bottom" constant="8" id="0Zy-hy-NOU"/>
                             <constraint firstItem="3uu-Bf-5xq" firstAttribute="trailing" secondItem="tKn-d7-LSq" secondAttribute="trailing" constant="40" id="1VO-dv-EEi"/>
                             <constraint firstItem="tKn-d7-LSq" firstAttribute="leading" secondItem="3uu-Bf-5xq" secondAttribute="leading" constant="40" id="3Ka-eF-kAn"/>
+                            <constraint firstItem="a9P-Zf-tb2" firstAttribute="centerX" secondItem="udt-Y7-uG6" secondAttribute="centerX" id="3Vi-iR-nZf"/>
                             <constraint firstItem="3uu-Bf-5xq" firstAttribute="bottom" secondItem="tKn-d7-LSq" secondAttribute="bottom" constant="40" id="86a-ND-1jp"/>
                             <constraint firstItem="3uu-Bf-5xq" firstAttribute="trailing" secondItem="Q49-37-LIB" secondAttribute="trailing" id="Bwq-5Y-H4t"/>
                             <constraint firstItem="Q49-37-LIB" firstAttribute="top" secondItem="3uu-Bf-5xq" secondAttribute="top" id="DzS-WF-HMK"/>
@@ -89,6 +98,7 @@
                     </view>
                     <connections>
                         <outlet property="cropPreview" destination="Q49-37-LIB" id="i4M-gf-r4o"/>
+                        <outlet property="rotationAngleSlider" destination="tKn-d7-LSq" id="sKK-Lh-SBz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rss-ze-c7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
